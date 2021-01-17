@@ -1,1 +1,88 @@
-/* You can add global styles to this file, and also import other style files */
+/*    Этот файл хранит в себе глобальные стили    */
+
+
+/* Убирает нежелательные стили */
+@import url("unwanted.css");
+
+/* Кегль Roboto ( https://fonts.google.com/specimen/Roboto ) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    font-family: "Roboto", sans-serif;
+}
+
+/* Чтобы label можно было присвоить отступ без дополнительной обертки */
+label {
+    display:block;
+}
+
+/* Размещение по центру горизонтали */
+.center {
+    display:flex;
+    justify-content: center;
+    width:100%;
+}
+
+/* Размещение по центру вертикали */
+.column-center {
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Размещение в колонну */
+.column {
+    display:flex;
+    flex-direction: column;
+}
+
+/* Размещение в ряд */
+.row {
+    display:flex;
+    flex-direction: row;
+}
+
+/* Все элементы имеют равное пространство вокруг */
+.space-evenly {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* Первый элемент вначале, последний в конце */
+.space-between {
+    display:flex;
+    justify-content: space-between;
+}
+
+/* Элемент в конце */
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Схожие моменты для всех полей */
+input {
+    outline: none;
+    border-radius: 5px;
+    border:1px solid grey;
+    padding: 5px 5px 5px 10px;
+}
+input::placeholder {
+    color:grey;
+}
+select {
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+}
+select:hover {
+    cursor: pointer;
+}
+
+/* Стандартный текст для полей выбора - серый */
+select:invalid {
+    color: gray;
+}
+/* А остальные варианты поля выбора - черные */
+select > option {
+    color:black;
+}

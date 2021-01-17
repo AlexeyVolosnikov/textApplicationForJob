@@ -1,0 +1,43 @@
+<div class="center">
+    <div class="modal-wrapper">
+        <div class="space-between padding-modal">
+            <label class="title"><b>Добавление смены</b></label>
+            <label class="close-cross">&#10005;</label>
+        </div>
+        <div class="padding-modal">
+            <div>
+                <label class="input-title-top">Тип крана</label>
+                <select required>
+                    <option value="" disabled selected hidden>Выберите тип крана...</option>
+                    <option>Одинарный</option>
+                    <option>Двойной</option>
+                </select>
+            </div>
+            <br>
+            <div>
+                <label class="input-title-top">ФИО ответственного</label>
+                <input maxlength="50" minlength="5" class="surname-input" type="text" placeholder="Фамилия И.О." required>
+            </div>
+            <br>
+            <div class="row">
+                <label class="column-center input-title-left">Дата начала</label>
+                <input class="date-input" type="datetime-local" required>
+                <label class="column-center input-title-left right-input-block">Дата окончания</label>
+                <input class="date-input" type="datetime-local" required>
+            </div>
+            <div>
+
+            </div>
+            <div class="flex-end bottom-menu">
+                <div>
+                    <label><b>Всего погружено: </b> т.</label>
+                    <label><b>Всего выгружено: </b> т.</label>
+                    <div class="row bottom-btns">
+                        <input class="close-btn" type="submit" value="Закрыть">
+                        <input class="save-btn" type="submit" value="Сохранить">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

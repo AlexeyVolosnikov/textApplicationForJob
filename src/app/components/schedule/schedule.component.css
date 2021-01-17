@@ -1,0 +1,75 @@
+@import url("../../../styles.css");
+
+/* Заголовок над таблицей */
+.title-wrapper {
+    display:flex;
+    justify-content: space-around;
+    border: 1px solid black;
+}
+
+/* Ширина таблицы и заголовка */
+.table-width {
+    width: 700px;
+}
+
+/* Знак плюс в заголовке */
+.plus-sign {
+    display: inline;
+    font-size: 30px;
+    margin-right: 20px;
+    font-weight: bold;
+}
+.plus-sign:hover {
+    color: #b6b2b2;
+    cursor: pointer;
+}
+
+/* Надпись названия таблицы */
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Стилизация таблицы */
+.table {
+    margin-top: 30px;
+}
+.table > .head {
+    background: #A7C942;
+    color:white;
+    font-weight: bold;
+}
+.table > .content:nth-child(odd) {
+    background: #EAF2D3;
+}
+.table > .content {
+    height:34px;
+}
+.table > tr > td {
+    border: 1px solid #5a8e49;
+    padding-left: 5px;
+}
+
+/* Значок мусорки */
+.wastebasket {
+    border: 0;
+    background: transparent;
+    color: #e30f0f;
+    margin-left: 10px;
+}
+.wastebasket:hover {
+    color: #871515;
+    cursor: pointer;
+}
+
+/* Значок редактирования */
+.edit {
+    border: 0;
+    background: transparent;
+    color:grey;
+}
+.edit:hover {
+    cursor: pointer;
+}
+
+
