@@ -1,12 +1,6 @@
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
 
 
-/*  для класса Schedule  */
-interface ISchedule {
-    initials  : string
-    start     : string
-    end       : string
-}
 /*
 *
 * Компонент таблицы смен
@@ -18,7 +12,7 @@ interface ISchedule {
     styleUrls : ['./schedule.component.css']
 })
 
-export class Schedule implements ISchedule {
+export class Schedule {
     /*
     *
     * Класс ответственен за расписание смен крановщиков
@@ -26,37 +20,28 @@ export class Schedule implements ISchedule {
     * */
 
 
-    initials  : string;
-    start     : string;
-    end       : string;
+    constructor() {}
+    ngOnInit(): void {};
 
-    // cranes<>[]
+    /*
+    * Добавляет смену в расписание
+    * */
+    add():void {
 
-    constructor(_initials:string, _start:string, _end:string) {
-        this.initials  = _initials;
-        this.start     = _start;
-        this.end       = _end;
     }
 
-    // /*
-    // * Добавляет смену в расписание
-    // * */
-    // add():void {
-    //
-    // }
-    //
-    // /*
-    // * Удаляет смену из расписания
-    // * */
-    // remove():void {
-    //
-    // }
-    //
-    // /*
-    // * Изменяет смену в расписании
-    // * */
-    // edit():void {
-    //
-    // }
-    // ngOnInit(): void {};
+    /*
+    * Удаляет смену из расписания
+    * */
+    remove():void {
+
+    }
+
+    /*
+    * Изменяет смену в расписании
+    * */
+    edit():void {
+
+    }
+
 }
