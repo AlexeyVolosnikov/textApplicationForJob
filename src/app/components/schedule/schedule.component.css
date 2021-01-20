@@ -50,26 +50,3 @@
     padding-left: 5px;
 }
 
-/* Значок мусорки */
-.wastebasket {
-    border: 0;
-    background: transparent;
-    color: #e30f0f;
-    margin-left: 10px;
-}
-.wastebasket:hover {
-    color: #871515;
-    cursor: pointer;
-}
-
-/* Значок редактирования */
-.edit {
-    border: 0;
-    background: transparent;
-    color:grey;
-}
-.edit:hover {
-    cursor: pointer;
-}
-
-

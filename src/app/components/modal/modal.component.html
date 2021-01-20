@@ -1,40 +1,40 @@
-<div class="center">
+<div class="center above-table">
     <div class="modal-wrapper">
         <div class="space-between padding-modal">
             <label class="title"><b>Добавление смены</b></label>
-            <label class="close-cross">&#10005;</label>
+            <label class="close-cross" (click)="close();">&#10005;</label>
         </div>
         <div class="padding-modal">
             <div>
                 <label class="input-title-top">Тип крана</label>
-                <select required>
+                <select required [value]="info().craneType" #type (change)="changeCraneType(type.value)">
                     <option value="" disabled selected hidden>Выберите тип крана...</option>
-                    <option>Одинарный</option>
-                    <option>Двойной</option>
+                    <option value="Одинарный">Одинарный</option>
+                    <option value="Двойной">Двойной</option>
                 </select>
             </div>
             <br>
             <div>
                 <label class="input-title-top">ФИО ответственного</label>
-                <input maxlength="50" minlength="5" class="surname-input" type="text" placeholder="Фамилия И.О." required>
+                <input #initials [value]="info().initials" (change)="changeInitials(initials.value)" maxlength="50" minlength="5" class="surname-input" type="text" placeholder="Фамилия И.О." required>
             </div>
             <br>
-            <div class="row">
+            <div class="row center">
                 <label class="column-center input-title-left">Дата начала</label>
-                <input class="date-input" type="datetime-local" required>
+                <input #startDate (change)="changeStartDate(startDate.value)" [value]="info().start" class="date-input" type="datetime-local" required>
                 <label class="column-center input-title-left right-input-block">Дата окончания</label>
-                <input class="date-input" type="datetime-local" required>
+                <input #endDate (change)="changeEndDate(endDate.value)" [value]="info().end" class="date-input" type="datetime-local" required>
             </div>
             <div>
-
+                <cranes></cranes>
             </div>
             <div class="flex-end bottom-menu">
                 <div>
-                    <label><b>Всего погружено: </b> т.</label>
-                    <label><b>Всего выгружено: </b> т.</label>
+                    <label><b>Всего погружено: {{ totalLoaded }} </b> т.</label>
+                    <label><b>Всего выгружено: {{ totalUnloaded }} </b> т.</label>
                     <div class="row bottom-btns">
-                        <input class="close-btn" type="submit" value="Закрыть">
-                        <input class="save-btn" type="submit" value="Сохранить">
+                        <input class="close-btn" type="submit" value="Закрыть" (click)="close();">
+                        <input class="save-btn" type="submit" value="Сохранить" (click)="save();" >
                     </div>
                 </div>
             </div>

@@ -1,0 +1,161 @@
+<div>
+    <div class="column">
+        <label class="crane-number"><strong>Первый кран</strong></label>
+        <table class="crane">
+            <tr>
+                <td>Грузовик</td>
+                <td>Погружено, т.</td>
+                <td>Выгружено, т.</td>
+                <td></td>
+            </tr>
+            <tr *ngFor="let info of info().firstCrane; index as rowNumber;">
+                <td>
+                    <select required [value]="info.car" >
+                        <option  disabled selected hidden>Выберите машину...</option>
+                        <option>Грузовик 1</option>
+                        <option>Грузовик 2</option>
+                    </select>
+                </td>
+                <td>
+                    <!-- min & oninput заданы, чтобы можно было вводить только положительные значения-->
+                    <input
+                        #loaded
+                        [value]="(info.loaded == '0') ? '' : info.loaded"
+                        (input)="handleInput(loaded, unloaded, 'Одинарный', rowNumber, 'loaded')"
+                        [disabled]="info.unloaded !== undefined || unloaded.value !== ''"
+                        type="number" min="0"
+                        oninput="validity.valid||(value='');"
+                    >
+                </td>
+                <td>
+                    <!-- min & oninput заданы, чтобы можно было вводить только положительные значения-->
+                    <input
+                        #unloaded
+                        [value]="(info.unloaded == '0') ? '' : info.unloaded"
+                        (input)="handleInput(unloaded, loaded, 'Одинарный', rowNumber, 'unloaded')"
+                        [disabled]="info.loaded !== undefined || loaded.value !== ''"
+                        type="number" min="0"
+                        oninput="validity.valid||(value='');">
+                </td>
+                <td class="fill-if-epmty">
+                    <svg (click)="delete('Одинарный', rowNumber)"  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="wastebasket column-center" viewBox="0 0 16 16">
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                    </svg>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <select #select required  (change)="add('Одинарный', select.value, select)" >
+                        <option  selected hidden>Выберите машину...</option>
+                        <option>Грузовик 1</option>
+                        <option>Грузовик 2</option>
+                    </select>
+                </td>
+                <td>
+                    <!-- min & oninput заданы, чтобы можно было вводить только положительные значения-->
+                    <input
+                        #loaded
+                        (input)="handleInput(loaded, unloaded, 'Одинарный', -1, 'loaded')"
+                        [disabled]="select.value!='Грузовик 1' && select.value!='Грузовик 2'"
+                        type="number" min="0"
+                        oninput="validity.valid||(value='');"
+                    >
+                </td>
+                <td>
+                    <!-- min & oninput заданы, чтобы можно было вводить только положительные значения-->
+                    <input
+                        #unloaded
+                        (input)="handleInput(unloaded, loaded, 'Одинарный', -1, 'unloaded')"
+                        [disabled]="select.value!='Грузовик 1' && select.value!='Грузовик 2'"
+                        type="number" min="0"
+                        oninput="validity.valid||(value='');"
+                    >
+                </td>
+                <td class="fill-if-epmty">
+
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="column" *ngIf="info().craneType == 'Двойной'">
+        <label class="crane-number"><strong>Второй кран</strong></label>
+        <table class="crane">
+            <tr>
+                <td>Грузовик</td>
+                <td>Погружено, т.</td>
+                <td>Выгружено, т.</td>
+                <td></td>
+            </tr>
+            <tr *ngFor="let info of info().secondCrane; index as rowNumber;">
+                <td>
+                    <select required [value]="info.car">
+                        <option value="" disabled selected hidden>Выберите машину...</option>
+                        <option>Грузовик 1</option>
+                        <option>Грузовик 2</option>
+                    </select>
+                </td>
+                <td>
+                    <!-- min & oninput заданы, чтобы можно было вводить только положительные значения-->
+                    <input
+                        #loaded
+                        [value]="(info.loaded == '0') ? '' : info.loaded"
+                        (input)="handleInput(loaded, unloaded, 'Двойной', rowNumber, 'loaded')"
+                        [disabled]="info.unloaded !== undefined || unloaded.value !== ''"
+                        type="number" min="0"
+                        oninput="validity.valid||(value='');"
+                    >
+                </td>
+                <td>
+                    <!-- min & oninput заданы, чтобы можно было вводить только положительные значения-->
+                    <input
+                        #unloaded
+                        [value]="(info.unloaded == '0') ? '' : info.unloaded"
+                        (input)="handleInput(unloaded, loaded, 'Двойной', rowNumber, 'unloaded')"
+                        [disabled]="info.loaded !== undefined || loaded.value !== ''"
+                        type="number" min="0"
+                        oninput="validity.valid||(value='');"
+                    >
+                </td>
+                <td class="fill-if-epmty">
+                    <svg (click)="delete('Двойной', rowNumber)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="wastebasket column-center" viewBox="0 0 16 16">
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                    </svg>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <select required #select (change)="add('Двойной', select.value, select)" >
+                        <option  disabled selected hidden>Выберите машину...</option>
+                        <option>Грузовик 1</option>
+                        <option>Грузовик 2</option>
+                    </select>
+                </td>
+                <td>
+                    <!-- min & oninput заданы, чтобы можно было вводить только положительные значения-->
+                    <input
+                        #loaded
+                        (input)="handleInput(loaded, unloaded, 'Двойной', -1, 'loaded')"
+                        [disabled]="select.value != 'Грузовик 1' && select.value != 'Грузовик 2' "
+                        type="number" min="0"
+                        oninput="validity.valid||(value='');"
+                    >
+                </td>
+                <td>
+                    <!-- min & oninput заданы, чтобы можно было вводить только положительные значения -->
+                    <input
+                        #unloaded
+                        (input)="handleInput(unloaded, loaded, 'Двойной', -1, 'unloaded')"
+                        [disabled]="select.value != 'Грузовик 1' && select.value != 'Грузовик 2' "
+                        type="number" min="0"
+                        oninput="validity.valid||(value='');"
+                    >
+                </td>
+                <td class="fill-if-epmty">
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

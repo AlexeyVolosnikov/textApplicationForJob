@@ -1,0 +1,34 @@
+@import url("../../../styles.css");
+
+/* Отступ для названия крана */
+.crane-number {
+    margin-top: 15px;
+}
+
+/* Шапка таблицы с названиями колонн */
+.crane > tr:nth-child(1) {
+    font-weight: bold;
+}
+
+/* Ячейки таблицы с кранами располагают текст по центру */
+.crane > tr > td {
+    text-align: center;
+}
+/* Отступ для рядов таблицы */
+.crane > tr {
+    border-bottom: 5px solid transparent;
+    border-top: 5px solid transparent;
+}
+/* Стиль для заблокированного поля */
+input:disabled {
+    background: #eeeeee;
+    border: 1px solid grey;
+}
+
+/* Если значка удалить нет, то это место
+ все равно должно занимать опр. ширину,
+ чтобы все ниже было ровно
+*/
+.fill-if-epmty {
+    width: 50px;
+}

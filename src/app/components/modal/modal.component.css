@@ -5,6 +5,7 @@
     width: 700px;
     height: 100%;
     border: 1px solid #c1bdbd;
+    box-shadow: 0 0 15px  grey;
 }
 
 /* Кнопка (крестик) закрыть модальное окно */
@@ -70,10 +71,19 @@
 
 /* Ширина для поля вводя даты */
 .date-input {
-    width: 178px;
+    width: 214px;
 }
 
 /* Отступ для правого блока */
 .right-input-block {
     margin-left: 10px;
+}
+
+/* расположить модальное окно над таблицей */
+.above-table {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: white;
+    margin-top: 20px;
 }
